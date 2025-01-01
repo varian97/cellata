@@ -91,4 +91,60 @@ export default class Board {
       this.ctx.stroke();
     }
   }
+
+  step() {
+    for (let y = 0; y < this.numRows; y++) {
+      for (let x = 0; x < this.numCols; x++) {
+        const alive = this._calculateAliveNeighbors(x, y);
+
+        if (this.currBoard[y][x] === 0) {
+          this.nextBoard[y][x] = alive === 3 ? 1 : 0;
+        } else {
+          this.nextBoard[y][x] = alive === 3 || alive === 2 ? 1 : 0;
+        }
+      }
+    }
+
+    [this.currBoard, this.nextBoard] = [this.nextBoard, this.currBoard];
+
+    this.renderBoard();
+  }
+
+  clear() {
+    for (let y = 0; y < this.numRows; y++) {
+      for (let x = 0; x < this.numCols; x++) {
+        this.currBoard[y][x] = 0;
+        this.nextBoard[y][x] = 0;
+      }
+    }
+
+    this.renderBoard();
+  }
+
+  _calculateAliveNeighbors(x: number, y: number): number {
+    let count = 0;
+
+    for (let dy = -1; dy < 2; dy++) {
+      for (let dx = -1; dx < 2; dx++) {
+        const currX = x + dx;
+        const currY = y + dy;
+
+        if (
+          currX < 0 ||
+          currY < 0 ||
+          currX > this.numCols - 1 ||
+          currY > this.numRows - 1 ||
+          (currX === x && currY === y)
+        ) {
+          continue;
+        }
+
+        if (this.currBoard[currY][currX] === 1) {
+          count += 1;
+        }
+      }
+    }
+
+    return count;
+  }
 }
