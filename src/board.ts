@@ -38,8 +38,10 @@ export default class Board {
     this.nextBoard = Array.from({ length: numRows }, () =>
       Array.from({ length: numCols }, () => 0)
     );
+  }
 
-    canvas.addEventListener("click", (e) => {
+  initBoard() {
+    this.canvas.addEventListener("click", (e) => {
       const { offsetX, offsetY } = e;
       const x = Math.floor(offsetX / this.cellWidth);
       const y = Math.floor(offsetY / this.cellHeight);

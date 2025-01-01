@@ -2,15 +2,36 @@
 <html>
   <head>
     <title>Cellata: Cellular Automata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <h1>Cellata</h1>
+    <section>
+      <h2>What is this project?</h2>
+      <p>
+        Cellata is a visualization engine for cellular automata. Cellata still
+        on development, so in the meantime, user can only visualize the infamous
+        Conway's Game of Life. In the future, user can select different automata
+        to visualize and also create a custom automata.
+      </p>
+    </section>
+
     <div class="wrapper">
-      <div class="canvas-container">
-        <canvas id="app" width="640" height="640"></canvas>
-      </div>
-      <div class="action-container">
-        <button id="step-button">Next</button>
-        <button id="clear-button">Clear</button>
+      <div class="canvas-and-action">
+        <div class="canvas-container">
+          <canvas id="app" width="640" height="640"></canvas>
+        </div>
+        <div class="action-container">
+          <button id="play-button">Play</button>
+          <button id="pause-button">Pause</button>
+          <button id="step-button">Next</button>
+          <button id="clear-button">Clear</button>
+        </div>
       </div>
     </div>
   </body>

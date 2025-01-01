@@ -1,19 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  height: 100vh;
+  width: 50%;
+  margin: auto;
+  font-family: "Nunito Sans", serif;
+}
+
+h1 {
+  margin-bottom: 48px;
+  font-size: 48px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  font-size: 24px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin-bottom: 16px;
+  padding: 16px 32px;
+  min-width: 125px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#play-button {
+  background-color: rgb(37, 158, 37);
+  color: white;
+}
+
+#play-button:disabled {
+  background-color: lightgray;
+  color: rgb(124, 120, 120);
+}
+
+#pause-button {
+  background-color: rgb(211, 83, 44);
+  color: white;
+}
+
+#step-button {
+  background-color: rgb(51, 60, 179);
+  color: white;
+}
+
+#step-button:disabled {
+  background-color: lightgray;
+  color: rgb(124, 120, 120);
+}
+
+#clear-button:disabled {
+  background-color: lightgray;
+  color: rgb(124, 120, 120);
+}
+
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  margin: 48px 0;
 }
-.wrapper {
+
+.canvas-and-action {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
+
 .canvas-container {
   flex: 1;
   margin-right: 32px;
 }
+
 .action-container {
   flex: 1;
+  flex-direction: column;
 }
